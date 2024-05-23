@@ -12,3 +12,4 @@ scikit-learn
 gensim
 nltk
 tensorflow
+seaborn
