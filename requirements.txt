@@ -5,7 +5,7 @@ nltk==3.7
 torch==1.11.0
 flask==2.1.2
 datasets==2.3.2
-transformers==4.19.2
+transformers
 spacy==3.2.4
 spacy-transformers==1.1.4
 wordcloud==1.8.1
