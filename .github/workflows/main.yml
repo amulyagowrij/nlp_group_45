@@ -26,15 +26,12 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
       
-    - name: Build Docker image
-      run: docker build -t my-flask-app .
-      
     - name: Test
       run: # Add your test commands here
       
     - name: Deploy to Production
       if: github.event_name == 'push' && github.ref == 'refs/heads/main'
       run: |
-        docker stop my-flask-app || true
-        docker rm my-flask-app || true
-        docker run -d --name my-flask-app -p 5000:5000 my-flask-app
+        # Your deployment script goes here
+        # For example:
+        # python deploy.py
