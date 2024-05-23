@@ -27,8 +27,8 @@ jobs:
       - name: Convert Notebook and Train Model
         run: |
           source venv/bin/activate
-          jupyter nbconvert --to script Final_Loss_Function_and_Optimizers.ipynb
-          python Final_Loss_Function_and_Optimizers.py
+          jupyter nbconvert --to script final.ipynb
+          python final.py
 
       - name: Deploy Model
         run: |
