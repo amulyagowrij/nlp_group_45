@@ -13,3 +13,4 @@ gensim
 nltk
 tensorflow
 seaborn
+flask
