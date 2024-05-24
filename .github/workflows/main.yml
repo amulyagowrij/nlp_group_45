@@ -1,4 +1,4 @@
-name:  Automatic Model Deployment Pipeline
+name: Automatic Model Deployment Pipeline
 
 on:
   workflow_dispatch:
@@ -28,9 +28,13 @@ jobs:
         run: |
           source venv/bin/activate
           jupyter nbconvert --to script final.ipynb
-          python final.py
 
       - name: Start Model Deployment
         run: |
           source venv/bin/activate
-          nohup python final.py &
+          nohup python final.py > flask_output.log 2>&1 &
+      
+      - name: Display Flask Logs
+        run: |
+          sleep 5  # Wait a few seconds for the Flask app to start
+          cat flask_output.log
