@@ -1,4 +1,4 @@
-name: Manual CI/CD Pipeline
+name:  Automatic Model Deployment Pipeline
 
 on:
   workflow_dispatch:
@@ -8,15 +8,15 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
+      - name: Checkout Repository
         uses: actions/checkout@v2
 
-      - name: Set up Python
+      - name: Set up Python Environment
         uses: actions/setup-python@v2
         with:
           python-version: 3.8
 
-      - name: Install dependencies
+      - name: Install Python Dependencies
         run: |
           python -m venv venv
           source venv/bin/activate
@@ -24,13 +24,13 @@ jobs:
           pip install -r requirements.txt
           pip install nbconvert
 
-      - name: Convert Notebook and Train Model
+      - name: Convert Jupyter Notebook to Script
         run: |
           source venv/bin/activate
           jupyter nbconvert --to script final.ipynb
           python final.py
 
-      - name: Deploy Model
+      - name: Start Model Deployment
         run: |
           source venv/bin/activate
           nohup python final.py &
