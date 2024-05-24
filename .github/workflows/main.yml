@@ -29,11 +29,10 @@ jobs:
           source venv/bin/activate
           jupyter nbconvert --to script final.ipynb
 
-      - name: Start Model Deployment
+      - name: Start Flask Application
         run: |
           source venv/bin/activate
-          nohup python final.py > flask_output.log 2>&1 &
-          sleep 5  # Wait for the Flask app to start
+          python final.py 2>&1 | tee flask_output.log
 
       - name: Display Flask Logs
         run: |
