@@ -32,4 +32,4 @@ jobs:
       - name: Start Flask Application
         run: |
           source venv/bin/activate
-          python final.py
+          python final.py | tee flask_output.log
