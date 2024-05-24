@@ -33,4 +33,4 @@ jobs:
       - name: Deploy Model
         run: |
           source venv/bin/activate
-          nohup python app.py &
+          nohup python final.py &
