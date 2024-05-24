@@ -32,7 +32,7 @@ jobs:
       - name: Start Model Deployment
         run: |
           source venv/bin/activate
-          python final.py | tee flask_output.log &
+          nohup python final.py > flask_output.log 2>&1 &
           sleep 5  # Wait for the Flask app to start
 
       - name: Display Flask Logs
